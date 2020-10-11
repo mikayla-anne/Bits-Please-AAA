@@ -10,87 +10,60 @@ public class Program {
 		
 		Scanner in = new Scanner(System.in);
 		int[][] grid = new int[9][9];
-		ArrayList<Pair> emptySpots = new ArrayList<Pair>();
-
+		//ArrayList<Pair> emptySpots = new ArrayList<Pair>();
 		
 		for(int i = 0; i < 81; i++) {
 			int r = i/9;
 			int c = i%9;
 			//System.out.println("row : " + r + "\ncol : " + c);
 			grid[r][c] = in.nextInt();
-			check(grid[r][c], r, c, emptySpots);
-			
-			
-			 /*if(i < 9) {
-				 grid[0][i] = in.nextInt();
-				 check(grid[0][i], 0, i, emptySpots);
 
-			 }
-			 else if (i < 18){
-				 grid[1][i - 9] = in.nextInt();
-				 check(grid[1][i-9], 1, i-9, emptySpots);
-			 }
-			 else if(i < 27) {
-				 grid[2][i - 18] = in.nextInt();
-				 check(grid[2][i - 18], 2, i-18, emptySpots);
-
-			 }
-			 else if(i < 36) {
-				 grid[3][i - 27] = in.nextInt();
-				 check(grid[3][i-27], 3, i-27, emptySpots);
-
-			 }
-			 else if(i < 45) {
-				 grid[4][i - 36] = in.nextInt();
-				 check(grid[4][i-36], 4, i-36, emptySpots);
-
-			 }
-			 else if(i < 54) {
-				 grid[5][i - 45] = in.nextInt();
-				 check(grid[5][i-45], 5, i-45, emptySpots);
-
-			 }
-			 else if(i < 63) {
-				 grid[6][i - 54] = in.nextInt();
-				 check(grid[6][i-54], 6, i-54, emptySpots);
-
-			 }
-			 else if(i < 72) {
-				 grid[7][i - 63] = in.nextInt();
-				 check(grid[7][i-63], 7, i-63, emptySpots);
-
-			 }
-			 else {
-				 grid[8][i - 72] = in.nextInt();
-				 check(grid[8][i-72], 8, i-72, emptySpots);
-
-			 }*/
 		}
 		
+		if(backtracking(grid) == true) {
+			print(grid);
+		}else {
+			System.out.println("No solution");
+		}
 		
+	}
+	
+	public static void print(int[][] grid) {
 		for(int i = 0; i < 9; i++) {
 			for(int j = 0; j < 9; j++) {
 				System.out.print(grid[i][j] + " ");
 			}
 			System.out.print("\n");
 		}
+	}
+	
+	public static boolean check(int n, int row , int col, int[][] grid) {
+		//First check if the number that the backtracking function wants to add is not already in the same row and column
+		//Then check if its not in the square block
+		//if its all ok return true
 		
-		for(int i = 0; i < emptySpots.size(); i++) {
-			emptySpots.get(i).printPair();
+		for(int i = 0; i < 9; ++i) {
+			if(grid[row][i] == n || grid[i][col] == n) {
+				return false;
+			}
 		}
+		
+		int SquareRow = row - row % 3;
+		int SquareCol = col - col % 3;
+		
+		for(int r = 0; r < 3; ++r) {
+			for(int c = 0; c < 3; ++c) {
+				if(grid[r + SquareRow][c + SquareCol] == n) {
+					return false;
+				}
+			}
+		}
+		return true;
+		
 		
 	}
 	
-	public static void check(int n, int r , int c, ArrayList<Pair> empties) {
-		if(n == 0) {
-			//System.out.println("adding to empty (" + r + " , " + c + ")");
-			Pair p = new Pair(r,c);
-			//p.printPair();
-			empties.add(p);
-		}
-	}
-	
-	public static boolean backtracking(int[][] grid, ArrayList<Pair> empty) {
+	public static boolean backtracking(int[][] grid) {
 		return false;
 	}
 	
