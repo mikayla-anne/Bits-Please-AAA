@@ -51,9 +51,9 @@ public class Program {
 		int SquareRow = row - row % 3;
 		int SquareCol = col - col % 3;
 		
-		for(int r = 0; r < 3; ++r) {
-			for(int c = 0; c < 3; ++c) {
-				if(grid[r + SquareRow][c + SquareCol] == n) {
+		for(int r = SquareRow; r < SquareRow +3; ++r) {
+			for(int c = SquareCol; c < SquareCol +3; ++c) {
+				if(grid[r][c] == n) {
 					return false;
 				}
 			}
