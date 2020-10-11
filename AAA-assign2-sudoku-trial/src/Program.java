@@ -87,12 +87,14 @@ public class Program {
             return true;
         }
 
+        //check for valid number between 1 and 9
         for(int j = 1 ; j < 10 ; ++j){
             if(check(j,row,col,grid)){
                 grid[row][col] = j;
                 if(backtracking(grid)){
                     return true;
                 }else{
+                    //reset grid at (row,col) and try next number
                     grid[row][col] = 0;
                 }
             }
