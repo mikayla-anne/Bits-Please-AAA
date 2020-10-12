@@ -8,12 +8,11 @@ import java.util.Scanner;
 
 public class Program {
 
-	static long duration;
     public static void main(String[] args) {
 
         // TODO Auto-generated method stub
 
-        Scanner in = new Scanner(System.in);
+        /*Scanner in = new Scanner(System.in);
         int[][] grid = new int[9][9];
         //ArrayList<Pair> emptySpots = new ArrayList<Pair>();
 
@@ -23,7 +22,7 @@ public class Program {
             //System.out.println("row : " + r + "\ncol : " + c);
             grid[r][c] = in.nextInt();
 
-        }
+        }*/
         
         BestCase();
 		AveCase();
@@ -35,16 +34,17 @@ public class Program {
 		Input in = new Input();
 		int[][] grid = in.getEasy();
 		String BestCase = "BestCase.csv";
-		int i = 0;
+		int i = 1;
 		
 		long startTime = System.nanoTime();
 		if(backtracking(grid) == true) {
 			print(grid);
+			System.out.println();
 		}else {
 			System.out.println("No solution");
 		}
 		long endTime = System.nanoTime();
-		duration = (endTime - startTime);
+		long duration = (endTime - startTime);
 		 
 		SaveCSV(i,duration,BestCase);
 	}
@@ -53,35 +53,37 @@ public class Program {
 		String AveCase = "AveCase.csv";
 		Input in = new Input();
 		int[][] grid = in.getAve();
-		int i = 0;
+		int i = 1;
 
 		long startTime = System.nanoTime();
 		if(backtracking(grid) == true) {
 			print(grid);
+			System.out.println();
 		}else {
 			System.out.println("No solution");
 		}
 		long endTime = System.nanoTime();
-		duration = (endTime - startTime);
+		long duration = (endTime - startTime);
 		
 		SaveCSV(i,duration,AveCase);
 
 	}
 	
 	public static void WorstCase() {
-		String WorstCase = "WorstCase";
+		String WorstCase = "WorstCase.csv";
 		Input in = new Input();
 		int[][] grid = in.getWorst();
-		int i = 0;
+		int i = 1;
 		
 		long startTime = System.nanoTime();
 		if(backtracking(grid) == true) {
 			print(grid);
+			System.out.println();
 		}else {
 			System.out.println("No solution");
 		}
 		long endTime = System.nanoTime();
-		duration = (endTime - startTime);
+		long duration = (endTime - startTime);
 		
 		SaveCSV(i,duration,WorstCase);	
 
