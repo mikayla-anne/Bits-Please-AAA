@@ -1,9 +1,14 @@
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Program {
 
-
+	static long duration;
     public static void main(String[] args) {
 
         // TODO Auto-generated method stub
@@ -19,14 +24,90 @@ public class Program {
             grid[r][c] = in.nextInt();
 
         }
-
-        if(backtracking(grid) == true) {
-            print(grid);
-        }else {
-            System.out.println("No solution");
-        }
+        
+        BestCase();
+		AveCase();
+		WorstCase();
 
     }
+    
+    public static void BestCase() {
+		Input in = new Input();
+		int[][] grid = in.getEasy();
+		String BestCase = "BestCase.csv";
+		int i = 0;
+		
+		long startTime = System.nanoTime();
+		if(backtracking(grid) == true) {
+			print(grid);
+		}else {
+			System.out.println("No solution");
+		}
+		long endTime = System.nanoTime();
+		duration = (endTime - startTime);
+		 
+		SaveCSV(i,duration,BestCase);
+	}
+	
+	public static void AveCase() {
+		String AveCase = "AveCase.csv";
+		Input in = new Input();
+		int[][] grid = in.getAve();
+		int i = 0;
+
+		long startTime = System.nanoTime();
+		if(backtracking(grid) == true) {
+			print(grid);
+		}else {
+			System.out.println("No solution");
+		}
+		long endTime = System.nanoTime();
+		duration = (endTime - startTime);
+		
+		SaveCSV(i,duration,AveCase);
+
+	}
+	
+	public static void WorstCase() {
+		String WorstCase = "WorstCase";
+		Input in = new Input();
+		int[][] grid = in.getWorst();
+		int i = 0;
+		
+		long startTime = System.nanoTime();
+		if(backtracking(grid) == true) {
+			print(grid);
+		}else {
+			System.out.println("No solution");
+		}
+		long endTime = System.nanoTime();
+		duration = (endTime - startTime);
+		
+		SaveCSV(i,duration,WorstCase);	
+
+	}
+
+		
+	
+	public static void SaveCSV(int n , long duration, String filepath) {
+
+		try {
+	        FileWriter fw = new FileWriter(filepath, true);
+	        BufferedWriter bw = new BufferedWriter(fw);
+	        PrintWriter pw = new PrintWriter(bw);
+
+	        //long date = System.currentTimeMillis();
+
+	        pw.println(n + "," + duration);
+	        pw.flush();
+	        pw.close();
+
+	    } catch (FileNotFoundException e) {
+	        System.out.println(e.getMessage());
+	    } catch (IOException e) {
+	        e.printStackTrace();
+	    }
+	}
 
     public static void print(int[][] grid) {
         for(int i = 0; i < 9; i++) {
