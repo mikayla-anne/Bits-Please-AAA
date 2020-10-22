@@ -1,0 +1,19 @@
+number of operations performed: 894  n: 18  time in nanoseconds: 4500
+number of operations performed: 1044  n: 21  time in nanoseconds: 5200
+number of operations performed: 1492  n: 27  time in nanoseconds: 7200
+number of operations performed: 1494  n: 28  time in nanoseconds: 7300
+number of operations performed: 1630  n: 31  time in nanoseconds: 7100
+number of operations performed: 2102  n: 41  time in nanoseconds: 10700
+number of operations performed: 7812  n: 43  time in nanoseconds: 37300
+number of operations performed: 5254  n: 44  time in nanoseconds: 23200
+number of operations performed: 381052  n: 49  time in nanoseconds: 2393700
+number of operations performed: 16825  n: 50  time in nanoseconds: 73900
+number of operations performed: 285872  n: 53  time in nanoseconds: 1653100
+number of operations performed: 368181  n: 55  time in nanoseconds: 2699100
+number of operations performed: 679133  n: 55  time in nanoseconds: 3361000
+number of operations performed: 380576  n: 56  time in nanoseconds: 1558600
+number of operations performed: 81902850  n: 57  time in nanoseconds: 443193100
+number of operations performed: 27490420  n: 59  time in nanoseconds: 129020400
+number of operations performed: 66355319  n: 60  time in nanoseconds: 281921200
+number of operations performed: 17842  n: 63  time in nanoseconds: 78300
+average time in nanoseconds: 43302745
